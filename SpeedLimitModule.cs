@@ -3,7 +3,7 @@ using Autofac;
 
 namespace SpeedLimitPlugin;
 
-public class SpeedLimitModule : AssettoServerModule
+public class SpeedLimitModule : AssettoServerModule<SpeedLimitConfiguration>
 {
     protected override void Load(ContainerBuilder builder)
     {
