@@ -59,7 +59,6 @@ public class EntryCarSpeedManager
                 if (ConvertACToKmh(absSpeed) > _speedLimitKmh)
                 {
                     Vector3 scaledVelocity = Vector3.Normalize(_entryCar.Status.Velocity) * (ConvertKmhToAC(_speedLimitKmh));
-                    Log.Information($"Setting Velocity {scaledVelocity.X}, {scaledVelocity.Y}, {scaledVelocity.Z}");
                     _entryCar.Client?.SendPacket(new EnforceSpeedLimit
                     {
                         Index = sender.SessionId,

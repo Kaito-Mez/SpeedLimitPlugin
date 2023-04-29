@@ -15,7 +15,8 @@ public class SpeedLimitPlugin : CriticalBackgroundService, IAssettoServerAutosta
     private readonly Dictionary<int, EntryCarSpeedManager> _instances = new();
     private readonly ACServerConfiguration _serverConfiguration;
 
-    public SpeedLimitPlugin(EntryCarManager entryCarManager,
+    public SpeedLimitPlugin(SpeedLimitConfiguration speedLimitConfiguration,
+        EntryCarManager entryCarManager,
         ACServerConfiguration serverConfiguration,
         CSPServerScriptProvider scriptProvider,
         Func<EntryCar, EntryCarSpeedManager> entryCarRaceFactory, 
@@ -29,7 +30,7 @@ public class SpeedLimitPlugin : CriticalBackgroundService, IAssettoServerAutosta
         {
             using var streamReader = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("SpeedLimitPlugin.lua.speedLimit.lua")!);
             scriptProvider.AddScript(streamReader.ReadToEnd(), "speedLimit.lua");
-            Log.Information("Lua Script Loaded!");
+            Log.Information("Server Speed Limit Set To: {SpeedLimit}", speedLimitConfiguration.SpeedLimit);
         }
     }
 
