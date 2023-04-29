@@ -30,7 +30,7 @@ public class SpeedLimitPlugin : CriticalBackgroundService, IAssettoServerAutosta
         {
             using var streamReader = new StreamReader(Assembly.GetExecutingAssembly().GetManifestResourceStream("SpeedLimitPlugin.lua.speedLimit.lua")!);
             scriptProvider.AddScript(streamReader.ReadToEnd(), "speedLimit.lua");
-            Log.Information("Server Speed Limit Set To: {SpeedLimit}", speedLimitConfiguration.SpeedLimit);
+            Log.Information("Server Speed Limit Set To: {SpeedLimit}Km/h", speedLimitConfiguration.SpeedLimit);
         }
     }
 
