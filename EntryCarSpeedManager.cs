@@ -1,10 +1,7 @@
 ﻿using System.Numerics;
-using AssettoServer.Network.Packets.Incoming;
-using AssettoServer.Network.Packets.Outgoing;
-using AssettoServer.Network.Packets.Shared;
+using AssettoServer.Shared.Network.Packets.Incoming;
 using AssettoServer.Network.Tcp;
 using AssettoServer.Server;
-using Serilog;
 using SpeedLimitPlugin.packets.outgoing;
 
 namespace SpeedLimitPlugin;
@@ -54,7 +51,7 @@ public class EntryCarSpeedManager
             if (c == 3)
             {
 
-                float absSpeed = sender.Status.Velocity.Length();
+                float absSpeed = sender.Status.Velocity.Length(); 
 
                 if (ConvertACToKmh(absSpeed) > _speedLimitKmh)
                 {
